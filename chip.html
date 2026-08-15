@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RestGuard chip — the board that stays off the animal</title>
+  <meta name="description" content="RestGuard prototype PCB: ESP32-S3, VL53L1X, MEMS microphone and RGB ring on a warm cream studio background." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,480;9..144,560;9..144,640&family=Outfit:wght@380;480;560;650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span class="logo-mark"></span>RestGuard</a>
+      <nav class="nav-links">
+        <a href="index.html#demo">Inside</a>
+        <a href="index.html#sensors">Sensors</a>
+        <a class="active" href="chip.html">Chip</a>
+        <a href="prototype.html">Prototype</a>
+      </nav>
+      <a class="btn btn-dark nav-cta" href="prototype.html">Open live prototype</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap" style="padding-top:48px">
+      <p class="eyebrow">Hardware hero · prototype board</p>
+      <h1>The chip, photographed like a thing you can hold.</h1>
+      <p class="lede">A compact ESP32-S3 board in the spirit of a wearable tracker—strap slots, ToF window, USB-C—shot on the same warm cream as the portfolio, because this product is for pets, not a dark lab.</p>
+    </section>
+
+    <section class="wrap-wide" style="padding-top:0">
+      <figure class="chip-shot" style="max-width:880px;margin:0 auto">
+        <img src="assets/images/restguard-tracer-pcb.jpg" alt="Top-down RestGuard prototype PCB on a warm cream background, ESP32-S3, VL53L1X, LED ring and USB-C" />
+      </figure>
+      <p class="note" style="text-align:center;margin-top:14px">Concept visualization of the proposed electronics. Not a manufactured production unit.</p>
+    </section>
+
+    <section class="wrap">
+      <div class="grid-3">
+        <article class="card">
+          <span class="num">ESP32-S3</span>
+          <h3>Local brain</h3>
+          <p>Wi-Fi and Bluetooth for a staff page on the LAN. Enough headroom for filtering, a 30-minute window, and hysteresis. Production still needs power and security review.</p>
+        </article>
+        <article class="card">
+          <span class="num">VL53L1X</span>
+          <h3>Distance, not a face</h3>
+          <p>Time-of-flight up to a few metres in the datasheet; RestGuard limits itself to the visitor zone and ignores brief pass-bys.</p>
+        </article>
+        <article class="card">
+          <span class="num">MEMS + ring</span>
+          <h3>Level in, colour out</h3>
+          <p>A digital microphone contributes minutes-above-threshold only. The RGB ring answers in under two seconds, always with e-paper text.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band-sage">
+      <div class="wrap grid-2">
+        <figure class="chip-shot">
+          <img src="assets/images/restguard-tof-sensor.jpg" alt="Macro of the time-of-flight sensor package" />
+        </figure>
+        <div>
+          <p class="eyebrow">Why this board is not a collar</p>
+          <h2>External mount. No animal contact.</h2>
+          <p class="lede">The slots echo a wearable tracker so a strap or plate can hug a kennel frame. The animal never wears the electronics. USB-C power avoids a sealed battery in the first concept. A two-piece shell with captive screws keeps the board replaceable.</p>
+          <a class="btn btn-dark" href="prototype.html">See the score the chip would compute</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap grid-2">
+      <div>
+        <p class="eyebrow">Prototype bill of materials</p>
+        <h2>About $115 in concept parts.</h2>
+        <div class="spec-row"><span>ESP32-S3 board</span><b>$15</b></div>
+        <div class="spec-row"><span>VL53L1X ToF module</span><b>$20</b></div>
+        <div class="spec-row"><span>Digital microphone</span><b>$10</b></div>
+        <div class="spec-row"><span>E-paper + LED ring + button</span><b>$26</b></div>
+        <div class="spec-row"><span>Reed switch, power, print</span><b>$44</b></div>
+        <p class="note">Concept estimate in CAD; excludes labour. Bench prototype first, custom PCB only after placement is measured.</p>
+      </div>
+      <figure class="chip-shot">
+        <img src="assets/images/restguard-chip-pcb.jpg" alt="RestGuard electronics photographed as a finished sensing tile" />
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <p class="disclaimer">RestGuard · Yulin Zhang · 2026 · Designed system, not a validated welfare product.</p>
+      <a href="index.html">Back to the story</a>
+    </div>
+  </footer>
+</body>
+</html>

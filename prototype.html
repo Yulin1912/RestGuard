@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RestGuard live prototype — enclosure lab</title>
+  <meta name="description" content="Interactive RestGuard prototype: simulate approaches, door events and sound, watch D = 2P + 3O + 0.25A, and use staff override." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,480;9..144,560;9..144,640&family=Outfit:wght@380;480;560;650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span class="logo-mark"></span>RestGuard</a>
+      <nav class="nav-links">
+        <a href="index.html#sensors">Sensors</a>
+        <a href="chip.html">Chip</a>
+        <a class="active" href="prototype.html">Prototype</a>
+      </nav>
+      <a class="btn btn-ghost nav-cta" href="index.html">Back to story</a>
+    </div>
+  </header>
+
+  <main class="proto-page wrap-wide">
+    <div class="proto-head">
+      <div>
+        <p class="eyebrow">Precise prototype · Enclosure A-03</p>
+        <h1>Live disturbance lab</h1>
+        <p class="lede">One simulated second equals one minute in the rolling window. Qualified approaches need dwell. Walk-bys do not count. Staff can always override.</p>
+      </div>
+      <div class="clock">
+        <button class="btn btn-dark" id="play-btn" type="button">Pause window</button>
+        <div><small>Simulated time in window</small><b id="clock">00:00 / 30:00</b></div>
+      </div>
+    </div>
+
+    <div class="lab">
+      <div class="panel">
+        <h3>Enclosure boundary</h3>
+        <p class="note">Sage band = 0.3–1.5 m ToF zone. Walk-past stays outside the dwell rule.</p>
+        <div class="enclosure">
+          <img src="assets/images/restguard-enclosure-scene.jpg" alt="Cat resting in a glass enclosure" />
+          <div class="range-band" title="0.3 to 1.5 metre visitor zone"></div>
+          <div class="visitor" id="visitor" aria-hidden="true"></div>
+        </div>
+        <div class="controls">
+          <button type="button" data-act="approach">Visitor approaches + dwells</button>
+          <button type="button" data-act="passby">Someone walks past</button>
+          <button type="button" data-act="door">Open enclosure door</button>
+          <button type="button" data-act="sound-on">Raise sound</button>
+          <button type="button" data-act="sound-off">Sound returns to quiet</button>
+        </div>
+        <div class="device-stage">
+          <div class="device" aria-live="polite">
+            <div class="device-band">
+              <div class="ring" id="ring"></div>
+              <div class="epaper" id="epaper">QUIET VIEWING</div>
+              <button class="staff-btn" id="device-button" title="Recessed staff button" type="button"></button>
+            </div>
+            <div class="wordmark">RESTGUARD</div>
+          </div>
+          <div class="score-readout">Score <b id="score">0.0</b> · State <b id="state-label">Quiet viewing</b></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Staff page · local only</h3>
+        <p class="note">No images. No waveform. Counts and minutes only.</p>
+        <div class="metrics">
+          <div class="metric"><small>P · approaches</small><b id="p">0</b></div>
+          <div class="metric"><small>O · door opens</small><b id="o">0</b></div>
+          <div class="metric"><small>A · sound min</small><b id="a">0.0</b></div>
+        </div>
+        <div>
+          <small>Sound exposure in the current window</small>
+          <div class="sound-bar"><i id="sound-fill"></i></div>
+        </div>
+        <p class="formula" style="font-size:1.6rem;margin-top:16px">D = 2P + 3O + 0.25A</p>
+        <p class="legend" id="formula-live">D = 2(0) + 3(0) + 0.25(0) = 0.00</p>
+        <div class="staff-actions">
+          <button type="button" data-staff="rest">Start rest period</button>
+          <button type="button" data-staff="clear-rest">End rest override</button>
+          <button type="button" data-staff="reset">Reset after relocation</button>
+        </div>
+        <div class="thresh">
+          <label>Approach dwell (seconds) <input id="dwell" type="range" min="2" max="12" value="4" /> <span id="dwell-val">4s</span></label>
+          <label>Sound threshold (relative) <input id="noise" type="range" min="40" max="85" value="62" /> <span id="noise-val">62</span></label>
+        </div>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <p class="eyebrow">Rolling 30-minute window</p>
+      <h3>Events age out. The ring should not flicker.</h3>
+      <p class="note">Green 0–10 · Amber from 11 · Rest above 20 or staff override · Return to green only below 8</p>
+      <div class="ticks" id="ticks" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <p class="disclaimer">Simulation for portfolio demonstration. Do not use this score as a welfare diagnosis. Pilot work needs site approval and an animal-care professional.</p>
+      <a href="chip.html">See the board</a>
+    </div>
+  </footer>
+  <script src="js/prototype.js"></script>
+</body>
+</html>
