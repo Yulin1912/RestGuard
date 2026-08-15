@@ -21,6 +21,7 @@
         <a class="active" href="prototype.html">Prototype</a>
       </nav>
       <a class="btn btn-ghost nav-cta" href="index.html">Back to story</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu"><span></span></button>
     </div>
   </header>
 
@@ -69,6 +70,15 @@
       <div class="panel">
         <h3>Staff page · local only</h3>
         <p class="note">No images. No waveform. Counts and minutes only.</p>
+        <div class="status-card">
+          <div>
+            <small>Enclosure A-03</small>
+            <strong id="staff-state">Quiet viewing</strong>
+            <span id="staff-score">Score 0 / 30</span>
+          </div>
+          <div class="status-orb" id="staff-orb"></div>
+        </div>
+        <div class="tof-read"><span>ToF visitor zone 0.3–1.5 m</span><b id="tof">clear</b></div>
         <div class="metrics">
           <div class="metric"><small>P · approaches</small><b id="p">0</b></div>
           <div class="metric"><small>O · door opens</small><b id="o">0</b></div>

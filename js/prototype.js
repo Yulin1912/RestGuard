@@ -87,6 +87,10 @@ function render() {
   $("formula-live").textContent = `D = 2(${P}) + 3(${O}) + 0.25(${A.toFixed(1)}) = ${D.toFixed(2)}`;
   $("sound-fill").style.width = `${Math.min(100, (A / WINDOW_MIN) * 100)}%`;
   $("clock").textContent = `${clockLabel(sim.minute)} / 30:00`;
+  $("staff-state").textContent = look.label;
+  $("staff-score").textContent = `Score ${Math.round(D)} / 30`;
+  $("staff-orb").style.background = look.ring;
+  $("staff-orb").style.boxShadow = `0 0 0 6px ${look.ring}29`;
   drawTicks();
 }
 
@@ -104,27 +108,28 @@ function drawTicks() {
   }
 }
 
-function moveVisitor(leftPct, on) {
+function moveVisitor(leftPct, on, label = "clear") {
   const el = $("visitor");
   el.style.left = `${leftPct}%`;
   el.classList.toggle("on", on);
+  $("tof").textContent = label;
 }
 
 function qualifyApproach() {
-  moveVisitor(38, true);
+  moveVisitor(38, true, "0.8 m · dwelling");
   log(`ToF: body entered 0.3–1.5 m. Waiting ${sim.dwellSec}s dwell…`);
   window.setTimeout(() => {
     sim.events.push({ t: sim.minute, type: "approach" });
     log("Qualified approach counted (entry + dwell).");
     render();
-    window.setTimeout(() => moveVisitor(8, false), 700);
+    window.setTimeout(() => moveVisitor(8, false, "clear"), 700);
   }, Math.min(1200, sim.dwellSec * 180));
 }
 
 function walkPast() {
-  moveVisitor(18, true);
+  moveVisitor(18, true, "2.4 m · pass-by");
   log("ToF blip < dwell time — not counted.");
-  window.setTimeout(() => moveVisitor(72, false), 800);
+  window.setTimeout(() => moveVisitor(72, false, "clear"), 800);
 }
 
 function openDoor() {
@@ -222,6 +227,12 @@ for (let i = 0; i < WINDOW_MIN; i += 1) {
   mark.style.height = "18%";
   $("ticks").appendChild(mark);
 }
+
+document.querySelectorAll(".nav-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".nav")?.classList.toggle("open");
+  });
+});
 
 log("Device booted to neutral guidance. No raw audio or images stored.");
 render();
