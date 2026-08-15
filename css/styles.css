@@ -152,9 +152,6 @@ p.lead {
 
 .nav-inner {
   position: relative;
-}
-
-.nav-inner {
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
   display: flex;
@@ -244,7 +241,12 @@ p.lead {
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.02);
+  filter: brightness(1.06);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-primary {
@@ -429,16 +431,20 @@ p.lead {
   text-align: left;
   background: transparent;
   border: 1px solid transparent;
+  border-left: 3px solid transparent;
   border-radius: 16px;
   padding: 0.95rem 1rem;
   cursor: pointer;
   color: var(--ink-soft);
+  font-weight: 600;
 }
 
 .sensor-tab.active {
-  background: var(--paper);
-  border-color: var(--line);
-  color: var(--ink);
+  background: var(--mint);
+  border-color: transparent;
+  border-left-color: var(--forest);
+  color: var(--forest);
+  font-weight: 750;
   box-shadow: var(--shadow);
 }
 
@@ -459,6 +465,16 @@ p.lead {
 .sensor-panel.active {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
+  animation: fade-in 0.28s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .sensor-panel img {
@@ -482,7 +498,7 @@ p.lead {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.55rem 0;
+  padding: 0.75rem 0;
   border-top: 1px solid var(--line);
   font-size: 0.92rem;
 }
@@ -773,6 +789,7 @@ p.lead {
   border-radius: 18px;
   padding: 1.2rem;
   border: 1px solid var(--line);
+  min-height: 168px;
 }
 
 .v-card em {
@@ -784,9 +801,10 @@ p.lead {
 .pilot {
   margin-top: 1.4rem;
   background: var(--forest-deep);
-  color: #f3f1e8;
+  color: #fbf9f2;
   border-radius: 20px;
   padding: 1.2rem 1.4rem;
+  line-height: 1.65;
 }
 
 .pilot strong {
@@ -898,6 +916,22 @@ p.lead {
   margin-bottom: 0.6rem;
 }
 
+.score-readout b.pulse {
+  animation: score-pulse 0.35s ease;
+}
+
+@keyframes score-pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .score-readout b {
   font-family: Fraunces, Georgia, serif;
   font-size: 2.4rem;
@@ -924,6 +958,10 @@ p.lead {
 
 .event-btns button:hover {
   background: var(--mint);
+}
+
+.event-btns button:active {
+  transform: scale(0.96);
 }
 
 .device {
@@ -973,6 +1011,7 @@ footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 .split {

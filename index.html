@@ -122,20 +122,20 @@
       <h2>Three sensors, mutually calibrated for one enclosure.</h2>
       <p class="lead">Like a precision wearable, RestGuard does not ask one sensor to explain the whole room. Presence, sound and door state work together — and stay explainable.</p>
       <div class="sensor-layout" style="margin-top:2.4rem">
-        <div class="sensor-tabs" role="tablist">
-          <button class="sensor-tab active" data-sensor-tab="tof">
+        <div class="sensor-tabs" role="tablist" aria-label="RestGuard sensors">
+          <button class="sensor-tab active" role="tab" aria-selected="true" data-sensor-tab="tof">
             Presence
             <small>VL53L1X time-of-flight</small>
           </button>
-          <button class="sensor-tab" data-sensor-tab="mic">
+          <button class="sensor-tab" role="tab" aria-selected="false" data-sensor-tab="mic">
             Sound level
             <small>Digital MEMS microphone</small>
           </button>
-          <button class="sensor-tab" data-sensor-tab="door">
+          <button class="sensor-tab" role="tab" aria-selected="false" data-sensor-tab="door">
             Door activity
             <small>Magnetic reed switch</small>
           </button>
-          <button class="sensor-tab" data-sensor-tab="fusion">
+          <button class="sensor-tab" role="tab" aria-selected="false" data-sensor-tab="fusion">
             Coordination
             <small>Rolling 30-minute window</small>
           </button>

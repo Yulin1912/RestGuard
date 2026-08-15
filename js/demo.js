@@ -56,6 +56,11 @@ function render() {
   els.pVal.textContent = formula.p;
   els.oVal.textContent = formula.o;
   els.aVal.textContent = formula.a;
+  if (els.score.textContent !== String(d)) {
+    els.score.classList.remove("pulse");
+    void els.score.offsetWidth;
+    els.score.classList.add("pulse");
+  }
   els.score.textContent = d;
   els.state.textContent = st.name;
   els.epaper.textContent = st.message;

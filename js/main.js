@@ -16,7 +16,11 @@ const panels = document.querySelectorAll("[data-sensor-panel]");
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const id = tab.dataset.sensorTab;
-    tabs.forEach((t) => t.classList.toggle("active", t === tab));
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.classList.toggle("active", on);
+      t.setAttribute("aria-selected", String(on));
+    });
     panels.forEach((p) => p.classList.toggle("active", p.dataset.sensorPanel === id));
   });
 });
