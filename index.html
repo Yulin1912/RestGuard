@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RestGuard — Make cumulative disturbance visible</title>
+  <meta name="description" content="RestGuard is a non-contact disturbance monitor for animal-care enclosures. Three sensors. One humane state. No cameras, no emotion claims." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,480;9..144,560;9..144,640&family=Outfit:wght@380;480;560;650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span class="logo-mark"></span>RestGuard</a>
+      <nav class="nav-links">
+        <a href="#opportunity">Opportunity</a>
+        <a href="#concept">Concept</a>
+        <a href="#demo">Inside</a>
+        <a href="#sensors">Sensors</a>
+        <a href="chip.html">Chip</a>
+        <a href="#staff">Staff</a>
+        <a href="#validation">Validation</a>
+      </nav>
+      <a class="btn btn-dark nav-cta" href="prototype.html">Open live prototype</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap-wide hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Engineering design portfolio · Yulin Zhang · 2026</p>
+        <h1>Quiet, made visible.</h1>
+        <p class="lede">RestGuard watches the enclosure–visitor boundary—not the animal. Three environmental events become one calm, explainable state. No camera. No emotion reading. No wearable on the pet.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="prototype.html">Try the interactive prototype</a>
+          <a class="btn btn-ghost" href="#sensors">See the multi-sensor science</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>100 × 70 × 30 mm</strong>External mount, USB-C</div>
+          <div><strong>ESP32-S3</strong>Local 30-minute window</div>
+          <div><strong>Privacy-first</strong>RMS level only, never audio</div>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <img src="assets/images/restguard-hero-device.jpg" alt="RestGuard mounted beside a quiet cat enclosure, sage ring glowing Quiet viewing" />
+        <a class="hero-chip" href="chip.html">
+          <img src="assets/images/restguard-tracer-pcb.jpg" alt="RestGuard prototype PCB" />
+          <span>Look inside the chip →</span>
+        </a>
+      </figure>
+    </section>
+
+    <section class="band-sage" id="opportunity">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">The opportunity</p>
+          <h2>Many small disturbances become one invisible problem.</h2>
+          <p class="lede">A visitor approaches. Another opens the door. Noise continues. Staff can see each moment, but the accumulated pattern across visitors and shifts is hard to hold in mind.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="num">01</span>
+            <h3>A visitor approaches</h3>
+            <p>Presence at the glass is ordinary. Repeated dwell in the 0.3–1.5 m zone is what the device counts—not people walking past.</p>
+          </article>
+          <article class="card">
+            <span class="num">02</span>
+            <h3>A door opens</h3>
+            <p>Each opening is a handling event. A magnetic reed switch records the count without entering the enclosure.</p>
+          </article>
+          <article class="card">
+            <span class="num">03</span>
+            <h3>Noise continues</h3>
+            <p>Sound is treated as a level, not a recording. Only minutes above a staff-set threshold enter the score.</p>
+          </article>
+        </div>
+        <p class="lede" style="margin-top:32px">Design question: how might a small device turn environmental events into clear, humane visitor guidance?</p>
+      </div>
+    </section>
+
+    <section id="concept">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Product concept</p>
+          <h2>Sense three events. Communicate one simple state.</h2>
+        </div>
+        <div class="flow">
+          <div class="flow-inputs">
+            <div class="card"><h3>Presence</h3><p>Approach + dwell, time-of-flight</p></div>
+            <div class="card"><h3>Sound level</h3><p>Time above threshold, MEMS RMS</p></div>
+            <div class="card"><h3>Door activity</h3><p>Open / close events, reed switch</p></div>
+          </div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="flow-out">
+            <div>
+              <small class="eyebrow">Public state</small>
+              <strong>Quiet viewing</strong>
+              <p>Colour is always paired with plain language, so the system never depends on colour perception alone.</p>
+            </div>
+          </div>
+        </div>
+        <div class="states">
+          <div class="state green"><div class="dot"></div><h3>Green</h3><p>Quiet viewing — observe calmly.</p></div>
+          <div class="state amber"><div class="dot"></div><h3>Amber</h3><p>Please give space — disturbance is accumulating.</p></div>
+          <div class="state rest"><div class="dot"></div><h3>Rest</h3><p>Avoid interaction unless staff directs otherwise.</p></div>
+        </div>
+        <p class="note" style="margin-top:20px">Not a diagnosis. RestGuard reports measurable events and offers guidance. Staff judgment always takes priority.</p>
+      </div>
+    </section>
+
+    <section class="band-sage" id="demo">
+      <div class="wrap-wide">
+        <div class="section-head">
+          <p class="eyebrow">Dyson-style demo</p>
+          <h2>Take the machine apart. See why it is quiet.</h2>
+          <p class="lede">The same idea as an exploded engineering demo: layers separate so you can understand the enclosure, the light ring, the board, and the mount—without putting anything on the animal.</p>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-toolbar">
+            <div class="seg" role="tablist">
+              <button class="on" data-view="assembled">Assembled</button>
+              <button data-view="exploded">Exploded view</button>
+              <button data-view="board">Bare board</button>
+            </div>
+            <a class="btn btn-sage" href="prototype.html">Launch the live lab</a>
+          </div>
+          <div class="explode-frame">
+            <img id="demo-image" src="assets/images/restguard-device-front.jpg" alt="RestGuard assembled cream enclosure" />
+          </div>
+          <div class="hotspots">
+            <button class="hotspot on" data-view="assembled"><small>01 Front shell</small>Recycled ABS/PC blend, matte cream, 100 × 70 × 30 mm</button>
+            <button class="hotspot" data-view="exploded"><small>02 Serviceable stack</small>Bezel, PCB, gasket, rear shell, sage mounting plate</button>
+            <button class="hotspot" data-view="board"><small>03 Electronics</small>ESP32-S3, VL53L1X, MEMS mic, RGB ring, USB-C</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sensors">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Wearable science, for the enclosure</p>
+          <h2>Functional integration in a compact package.</h2>
+          <p class="lede">Like a multi-sensor wearable, RestGuard’s parts work together and stay mutually explainable. The difference: the “wearable” is on the wall, not on the animal.</p>
+        </div>
+        <div class="sensor-hero">
+          <figure class="chip-shot">
+            <img id="sensor-visual" src="assets/images/restguard-mems-chip.jpg" alt="Macro MEMS structures on a warm cream background" />
+          </figure>
+          <div>
+            <div class="sensor-tabs" role="tablist">
+              <button class="on" data-sensor="mems">All-in-one at micro scale</button>
+              <button data-sensor="tof">Time-of-flight</button>
+              <button data-sensor="mic">Sound level</button>
+              <button data-sensor="door">Door magnet</button>
+            </div>
+            <article class="sensor-panel on" data-sensor="mems">
+              <h3>Tiny machines, local meaning</h3>
+              <p>MEMS lets mechanical sensing shrink onto a chip. RestGuard uses that density so a 30 mm-deep tile can watch presence and sound without a camera. The board then fuses those signals into one public state—never an opaque “stress” label.</p>
+              <div class="spec-row"><span>Controller</span><b>ESP32-S3, on-device</b></div>
+              <div class="spec-row"><span>Window</span><b>Rolling 30 minutes</b></div>
+              <div class="spec-row"><span>Update</span><b>≤ 2 seconds after a state change</b></div>
+            </article>
+            <article class="sensor-panel" data-sensor="tof">
+              <h3>VL53L1X presence, not identity</h3>
+              <p>A Class 1 time-of-flight emitter measures distance in a programmable field of view. RestGuard only treats a person as an approach if they enter 0.3–1.5 m and stay long enough. Glass and angle need site calibration; walk-bys should not count.</p>
+              <div class="spec-row"><span>Usable zone</span><b>0.3–1.5 m visitor band</b></div>
+              <div class="spec-row"><span>Typical FOV</span><b>27°, ROI limited on purpose</b></div>
+              <div class="spec-row"><span>Target</span><b>≥ 90% qualified approaches</b></div>
+            </article>
+            <article class="sensor-panel" data-sensor="mic">
+              <h3>A microphone that refuses to listen</h3>
+              <p>The digital MEMS microphone is treated as a sound-level sensor. Firmware keeps short-window RMS summaries only. No waveform, no speech, no archive. It is not a certified meter; staff set a relative threshold and compare against a reference during calibration.</p>
+              <div class="spec-row"><span>Stored data</span><b>Level minutes, never audio</b></div>
+              <div class="spec-row"><span>Weight in score</span><b>0.25 × minutes above threshold</b></div>
+            </article>
+            <article class="sensor-panel" data-sensor="door">
+              <h3>Magnetic door state</h3>
+              <p>A reed switch and magnet count openings with almost no power and no image. Alignment matters. The prototype target is 99 correct events in 100 open/close cycles.</p>
+              <div class="spec-row"><span>Input</span><b>External reed + magnet</b></div>
+              <div class="spec-row"><span>Score weight</span><b>3 points per qualified open</b></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="coord">
+          <p class="eyebrow">Multi-function coordination</p>
+          <h3>How the sensors become one guidance state</h3>
+          <p class="lede" style="margin-top:8px">Each sensor is simple. The coordination is the product: a preliminary, adjustable score with hysteresis so the ring does not flicker.</p>
+          <p class="formula">D = 2P + 3O + 0.25A</p>
+          <p class="legend">P qualified approaches · O door-open events · A minutes above the sound threshold</p>
+          <div class="coord-grid">
+            <div class="pill"><strong>0–10</strong><span>Green · Quiet viewing</span></div>
+            <div class="pill"><strong>11–20</strong><span>Amber · Please give space</span></div>
+            <div class="pill"><strong>&gt;20</strong><span>Rest · Avoid interaction</span></div>
+            <div class="pill"><strong>Hysteresis</strong><span>Amber at 11, green only below 8</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-sage" id="architecture">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">System architecture</p>
+          <h2>Local processing keeps the logic transparent.</h2>
+        </div>
+        <div class="arch">
+          <div class="arch-col">
+            <div class="card"><h3>Presence</h3><p>Time-of-flight · approach / dwell</p></div>
+            <div class="card"><h3>Sound level</h3><p>Digital MEMS · RMS only</p></div>
+            <div class="card"><h3>Door activity</h3><p>Magnetic reed · open / close</p></div>
+          </div>
+          <div class="arch-core">
+            <h3>ESP32-S3 controller</h3>
+            <ul>
+              <li>Signal filtering</li>
+              <li>Rolling 30-minute window</li>
+              <li>Disturbance score D</li>
+              <li>Hysteresis + staff override</li>
+              <li>No cloud required for guidance</li>
+            </ul>
+          </div>
+          <div class="arch-col">
+            <div class="card"><h3>Public display</h3><p>RGB ring + e-paper · green / amber / rest</p></div>
+            <div class="card"><h3>Staff interface</h3><p>Recessed button + local web app</p></div>
+            <div class="card"><h3>Privacy-safe log</h3><p>Counts and level summaries only</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="staff">
+      <div class="wrap">
+        <div class="staff-split">
+          <figure class="phone-photo">
+            <img src="assets/images/restguard-staff-phone.jpg" alt="Staff holding the RestGuard local web app" />
+          </figure>
+          <div>
+            <p class="eyebrow">Interaction design</p>
+            <h2>The staff interface explains every score.</h2>
+            <p class="lede">Current enclosure state, transparent event counts, and human override. Summaries—not recordings, not visitor identities, and never a ranking of animals by “stress.”</p>
+            <p class="formula">D = 2P + 3O + 0.25A</p>
+            <p class="legend">Every public colour can be traced back to observable counts.</p>
+            <div class="hero-actions" style="margin-top:22px">
+              <a class="btn btn-dark" href="prototype.html">Use the staff controls</a>
+              <a class="btn btn-ghost" href="chip.html">Inspect the board</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-sage" id="validation">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Validation plan</p>
+          <h2>A strong prototype shows how the idea could fail.</h2>
+        </div>
+        <div class="val-grid">
+          <div class="val-card"><div class="n">01 Approach</div><h3>≥ 90% detection</h3><p>Scripted approaches at varied angles; walk-bys should stay under 10% false counts.</p></div>
+          <div class="val-card"><div class="n">02 Door</div><h3>≥ 99 / 100 events</h3><p>Open/close fixture test for magnetic alignment.</p></div>
+          <div class="val-card"><div class="n">03 Latency</div><h3>≤ 2 seconds</h3><p>Timestamp the sensor event and the display change.</p></div>
+          <div class="val-card"><div class="n">04 Privacy</div><h3>No raw audio</h3><p>Firmware and payload audit: no waveform, image, or identifier.</p></div>
+          <div class="val-card"><div class="n">05 Usability</div><h3>≥ 80% task success</h3><p>Five staff complete three tasks without instruction.</p></div>
+          <div class="val-card"><div class="n">06 Mounting</div><h3>No loose part</h3><p>External mount, captive fasteners, controlled pull test.</p></div>
+        </div>
+        <div class="pilot"><b>Pilot rule</b><span>Never create extra disturbance to test the device. Begin with simulations and staff-approved observation.</span></div>
+      </div>
+    </section>
+
+    <section class="band-forest">
+      <div class="wrap" style="display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:end">
+        <div>
+          <p class="eyebrow">Next evidence, not just next features</p>
+          <h2>Open the precise prototype.</h2>
+          <p class="lede">Run approaches, door events and sound minutes. Watch D update, hysteresis hold, and staff rest override the ring.</p>
+        </div>
+        <a class="btn btn-sage" href="prototype.html">Enter the live lab</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div class="logo"><span class="logo-mark"></span>RestGuard</div>
+        <p class="disclaimer">A designed system—not yet a validated welfare product. Concept by Yulin Zhang, August 2026. Dimensions, costs and thresholds are proposed design values.</p>
+      </div>
+      <div>
+        <a href="prototype.html">Prototype</a> · <a href="chip.html">Chip</a> · <a href="#sensors">Sensors</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
