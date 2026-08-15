@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestGuard Demo — Experience the disturbance score</title>
+  <meta name="description" content="Interactive RestGuard prototype: add approaches, door events and sound, then watch the public ring and staff dashboard update.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect width="64" height="64" rx="16" fill="#2C4636"/>
+          <circle cx="22" cy="32" r="7" stroke="#3DDC6A" stroke-width="4"/>
+          <rect x="32" y="27" width="16" height="10" rx="2" fill="#E8F0E6"/>
+        </svg>
+        RestGuard
+      </a>
+      <nav class="nav-links" data-nav>
+        <a href="index.html#sensors">Multi-sensor</a>
+        <a href="chip.html">Sensing board</a>
+        <a href="index.html#design">Inside</a>
+        <a href="demo.html">Demo</a>
+      </nav>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu"><span></span></button>
+      <a class="btn btn-ghost" href="index.html">Back to story</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">RestGuard Demo</p>
+      <h1>A new way to experience the guidance loop.</h1>
+      <p class="lead">This is the same visualisation idea as a lab demo: you can pick up the logic, watch the machine disassemble into counts, and trial the three public states from a desk — before any animal-adjacent pilot.</p>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap demo-shell">
+      <div>
+        <div class="device" aria-label="RestGuard public face">
+          <div class="device-band">
+            <div class="ring" data-ring></div>
+            <div class="epaper" data-epaper aria-live="polite">QUIET VIEWING</div>
+            <div class="menu-btn" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+          <div class="device-name">RestGuard</div>
+        </div>
+        <div class="feature-trio" style="margin-top:2rem">
+          <article class="card">
+            <h3>Exploding the score</h3>
+            <p>D = 2P + 3O + 0.25A over a rolling 30-minute window.</p>
+          </article>
+          <article class="card">
+            <h3>Getting hands-on</h3>
+            <p>Tap events as if you were standing at Enclosure A-03.</p>
+          </article>
+          <article class="card">
+            <h3>Staff override</h3>
+            <p>Start a rest period or reset after relocation.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="controls">
+        <div class="score-readout">
+          <div>
+            <p class="eyebrow">Disturbance score</p>
+            <b data-score>8</b>
+          </div>
+          <strong data-state aria-live="polite">Quiet viewing</strong>
+        </div>
+        <label>Qualified approaches <span data-p>3</span></label>
+        <input id="p" type="range" min="0" max="20" value="3">
+        <label>Door-open events <span data-o>0</span></label>
+        <input id="o" type="range" min="0" max="12" value="0">
+        <label>Minutes above sound <span data-a>4</span></label>
+        <input id="a" type="range" min="0" max="30" value="4">
+        <div class="event-btns">
+          <button type="button" data-approach>+ Approach</button>
+          <button type="button" data-door>+ Door</button>
+          <button type="button" data-sound>+ Sound min</button>
+        </div>
+        <div class="event-btns pair">
+          <button type="button" data-rest>Toggle rest</button>
+          <button type="button" data-reset>Staff reset</button>
+        </div>
+        <p class="note">Green 0–10 · Amber 11–20 · Rest &gt;20 or staff override. Hysteresis is described in the report; this demo shows the live score immediately.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" style="background:#efece1">
+    <div class="wrap staff-grid">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-top">RestGuard <span class="status-dot"></span></div>
+          <div class="app-status">
+            <div>
+              <small>ENCLOSURE A-03</small>
+              <h3 data-app-state>Quiet viewing</h3>
+              <span data-app-score>8 / 30</span>
+            </div>
+            <div data-app-swatch style="width:42px;height:42px;border-radius:50%;background:#4f8a5b"></div>
+          </div>
+          <p><strong>Last 30 minutes</strong></p>
+          <div class="app-metrics">
+            <div class="metric"><label>Approaches</label><b data-app-p>3</b></div>
+            <div class="metric"><label>Door opens</label><b data-app-o>0</b></div>
+          </div>
+          <div class="metric" style="margin-top:.6rem">
+            <label>Sound exposure</label>
+            <div class="sound-bar"><span data-sound-fill></span></div>
+            <small data-app-a>4 minutes above configured level</small>
+          </div>
+          <button class="staff-btn" type="button" data-rest>Staff controls</button>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Staff interface</p>
+        <h2>Summaries, never identities.</h2>
+        <p class="lead">The local web app shows the current enclosure state and the counts behind it. It does not store audio, images or visitor identities. Authorized staff can start a manual rest period, reset after relocation, and later configure thresholds.</p>
+        <ul class="spec-list">
+          <li><span>Public outputs</span><b>RGB ring + e-paper</b></li>
+          <li><span>Staff outputs</span><b>Button + local web app</b></li>
+          <li><span>Log</span><b>Counts and level summaries</b></li>
+          <li><span>Never</span><b>Rank animals by “stress”</b></li>
+        </ul>
+        <h3 style="margin-top:1.6rem">Event log</h3>
+        <ul class="spec-list" data-log>
+          <li>Prototype ready · Enclosure A-03</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <img src="assets/images/exploded-alt.jpg" alt="Exploded RestGuard layers from cream shell to sage mount" style="border-radius:28px;box-shadow:var(--shadow)">
+      <div>
+        <p class="eyebrow">From demo to bench</p>
+        <h2>This page is Level A. The next evidence is measurement.</h2>
+        <p>Portfolio prototype → ESP32 bench build → 3D-printed appearance model → supervised pilot. Estimated concept BOM about $115 CAD, excluding labour. A production life-cycle assessment is future work.</p>
+        <a class="btn btn-primary" href="chip.html">Inspect the sensing board</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <strong>RestGuard Demo</strong>
+        <p>Interactive portfolio prototype · Yulin Zhang 2026</p>
+      </div>
+      <p>Do not use this score as a welfare diagnosis. Staff judgment and existing care procedures always take priority.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/demo.js"></script>
+</body>
+</html>

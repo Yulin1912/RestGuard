@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestGuard RG-SENSE — ESP32-S3 sensing board</title>
+  <meta name="description" content="The RestGuard RG-SENSE board: ESP32-S3, VL53L1X time-of-flight, MEMS microphone and status LEDs on a compact, serviceable plate.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect width="64" height="64" rx="16" fill="#2C4636"/>
+          <circle cx="22" cy="32" r="7" stroke="#3DDC6A" stroke-width="4"/>
+          <rect x="32" y="27" width="16" height="10" rx="2" fill="#E8F0E6"/>
+        </svg>
+        RestGuard
+      </a>
+      <nav class="nav-links" data-nav>
+        <a href="index.html#sensors">Multi-sensor</a>
+        <a href="chip.html">Sensing board</a>
+        <a href="demo.html">Demo</a>
+      </nav>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu"><span></span></button>
+      <a class="btn btn-primary" href="demo.html">Try the demo</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">RG-SENSE / ESP32-S3</p>
+      <h1>The board that stays on the enclosure, not on the animal.</h1>
+      <p class="lead">A compact, strap-slot carrier photographed like a wearable tracker — then deliberately kept off the body. Warm light, cream linen, sage in the room: the same palette as the portfolio, because the electronics should feel like care equipment, not a surveillance brick.</p>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap chip-page-hero">
+      <img src="assets/images/chip-pcb.jpg" alt="RestGuard RG-SENSE board: green PCB with ESP32-S3 module, VL53L1X, MEMS microphone, LED columns, USB-C and strap slots on cream linen">
+      <div class="callouts">
+        <div class="callout"><b>ESP32-S3-WROOM</b>Local processing, Wi-Fi and BLE for the staff page.</div>
+        <div class="callout"><b>VL53L1X</b>Time-of-flight visitor zone, not a camera.</div>
+        <div class="callout"><b>MEMS microphone</b>RMS sound level only. No waveform stored.</div>
+        <div class="callout"><b>Strap slots</b>Bench fixture first, then the sage enclosure plate.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Specification</p>
+        <h2>All-in-one at a prototype scale.</h2>
+        <p>The board is the Level B heart of RestGuard: enough I/O to prove sensing and logic before a custom production PCB. Slots echo a wearable mount so the same plate can be bench-strapped, then moved to the sage enclosure plate.</p>
+        <ul class="spec-list">
+          <li><span>Controller</span><b>ESP32-S3-WROOM</b></li>
+          <li><span>Wireless</span><b>Wi-Fi 802.11b/g/n · BLE</b></li>
+          <li><span>Time-of-flight</span><b>ST VL53L1X</b></li>
+          <li><span>Sound</span><b>Digital I²S MEMS microphone</b></li>
+          <li><span>Status</span><b>Addressable LED ring / columns</b></li>
+          <li><span>Door input</span><b>External reed + magnet</b></li>
+          <li><span>Power</span><b>USB-C, no sealed cell</b></li>
+          <li><span>Programming</span><b>USB UART · BOOT / EN</b></li>
+        </ul>
+      </div>
+      <img src="assets/images/mems-macro.jpg" alt="Macro of the optical ToF window and MEMS microphone on the RestGuard board" style="border-radius:28px;box-shadow:var(--shadow)">
+    </div>
+  </section>
+
+  <section class="section" style="background:#efece1">
+    <div class="wrap">
+      <p class="eyebrow">Why these parts</p>
+      <h2>Selected for a bench you can explain.</h2>
+      <div class="three">
+        <article class="card">
+          <h3>ESP32-S3</h3>
+          <p>Enough local processing for a 1 Hz loop, hysteresis and a staff web page. Production still needs power and security review.</p>
+        </article>
+        <article class="card">
+          <h3>VL53L1X</h3>
+          <p>Programmable ROI and a Class 1 emitter. Glass and visitor angle need site calibration; usable range is limited to the visitor zone.</p>
+        </article>
+        <article class="card">
+          <h3>MEMS microphone</h3>
+          <p>Compact I²S input. Never treated as a certified meter, and never as a recorder.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <img src="assets/images/exploded.jpg" alt="How the board sits between the light-pipe bezel and the sealed rear shell" style="border-radius:28px;box-shadow:var(--shadow)">
+      <div>
+        <p class="eyebrow">Inside the 100 × 70 × 30 mm shell</p>
+        <h2>The chip is a layer, not the product.</h2>
+        <p>Front shell, sensor bezel, electronics, silicone gasket, rear shell, sage mount. USB-C at the edge. Recessed staff button. Captive screws so the board can be replaced without throwing the enclosure away.</p>
+        <div class="stats">
+          <div class="stat"><b>~$15</b><span>ESP32-S3 board</span></div>
+          <div class="stat"><b>~$20</b><span>ToF module</span></div>
+          <div class="stat"><b>~$115</b><span>Concept BOM, CAD</span></div>
+        </div>
+        <p style="margin-top:1.4rem"><a class="btn btn-primary" href="demo.html">See it drive a score</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <strong>RG-SENSE</strong>
+        <p>Concept electronics photograph for the RestGuard portfolio.</p>
+      </div>
+      <p>Component placement is proposed and requires CAD tolerance checks. Not a manufactured production unit.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
