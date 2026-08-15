@@ -3,6 +3,7 @@ const formula = {
   o: 0,
   a: 4,
   restOverride: false,
+  band: "green",
 };
 
 const els = {
@@ -31,12 +32,22 @@ function score() {
 
 function publicState(d) {
   if (formula.restOverride || d > 20) {
-    return { name: "Rest period", message: "REST PERIOD", color: "#a65d4a", glow: "rgba(166,93,74,.4)", hint: "Avoid interaction" };
+    formula.band = "rest";
+  } else if (formula.band === "rest" && d <= 20) {
+    formula.band = d >= 8 ? "amber" : "green";
+  } else if (formula.band === "green" && d >= 11) {
+    formula.band = "amber";
+  } else if (formula.band === "amber" && d < 8) {
+    formula.band = "green";
   }
-  if (d >= 11) {
-    return { name: "Please give space", message: "GIVE SPACE", color: "#d4a24a", glow: "rgba(212,162,74,.4)", hint: "Disturbance is accumulating" };
+
+  if (formula.band === "rest") {
+    return { name: "Rest period", message: "REST PERIOD", color: "#a65d4a", glow: "rgba(166,93,74,.4)" };
   }
-  return { name: "Quiet viewing", message: "QUIET VIEWING", color: "#3ddc6a", glow: "rgba(61,220,106,.45)", hint: "Observe calmly" };
+  if (formula.band === "amber") {
+    return { name: "Please give space", message: "GIVE SPACE", color: "#d4a24a", glow: "rgba(212,162,74,.4)" };
+  }
+  return { name: "Quiet viewing", message: "QUIET VIEWING", color: "#3ddc6a", glow: "rgba(61,220,106,.45)" };
 }
 
 function render() {
@@ -102,6 +113,7 @@ document.querySelector("[data-reset]")?.addEventListener("click", () => {
   formula.o = 0;
   formula.a = 0;
   formula.restOverride = false;
+  formula.band = "green";
   els.p.value = 0;
   els.o.value = 0;
   els.a.value = 0;
@@ -109,10 +121,12 @@ document.querySelector("[data-reset]")?.addEventListener("click", () => {
   render();
 });
 
-document.querySelector("[data-rest]")?.addEventListener("click", () => {
-  formula.restOverride = !formula.restOverride;
-  log(formula.restOverride ? "Manual rest period started." : "Manual rest period ended.");
-  render();
+document.querySelectorAll("[data-rest]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formula.restOverride = !formula.restOverride;
+    log(formula.restOverride ? "Manual rest period started." : "Manual rest period ended.");
+    render();
+  });
 });
 
 render();

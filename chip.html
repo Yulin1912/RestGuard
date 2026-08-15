@@ -22,11 +22,12 @@
         </svg>
         RestGuard
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" data-nav>
         <a href="index.html#sensors">Multi-sensor</a>
         <a href="chip.html">Sensing board</a>
         <a href="demo.html">Demo</a>
       </nav>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu"><span></span></button>
       <a class="btn btn-primary" href="demo.html">Try the demo</a>
     </div>
   </header>
@@ -42,6 +43,12 @@
   <section class="section tight">
     <div class="wrap chip-page-hero">
       <img src="assets/images/chip-pcb.jpg" alt="RestGuard RG-SENSE board: green PCB with ESP32-S3 module, VL53L1X, MEMS microphone, LED columns, USB-C and strap slots on cream linen">
+      <div class="callouts">
+        <div class="callout"><b>ESP32-S3-WROOM</b>Local processing, Wi-Fi and BLE for the staff page.</div>
+        <div class="callout"><b>VL53L1X</b>Time-of-flight visitor zone, not a camera.</div>
+        <div class="callout"><b>MEMS microphone</b>RMS sound level only. No waveform stored.</div>
+        <div class="callout"><b>Strap slots</b>Bench fixture first, then the sage enclosure plate.</div>
+      </div>
     </div>
   </section>
 
@@ -113,5 +120,6 @@
       <p>Component placement is proposed and requires CAD tolerance checks. Not a manufactured production unit.</p>
     </div>
   </footer>
+  <script src="js/main.js"></script>
 </body>
 </html>

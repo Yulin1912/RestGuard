@@ -22,12 +22,13 @@
         </svg>
         RestGuard
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" data-nav>
         <a href="index.html#sensors">Multi-sensor</a>
         <a href="chip.html">Sensing board</a>
         <a href="index.html#design">Inside</a>
         <a href="demo.html">Demo</a>
       </nav>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu"><span></span></button>
       <a class="btn btn-ghost" href="index.html">Back to story</a>
     </div>
   </header>
@@ -86,7 +87,7 @@
           <button type="button" data-door>+ Door</button>
           <button type="button" data-sound>+ Sound min</button>
         </div>
-        <div class="event-btns">
+        <div class="event-btns pair">
           <button type="button" data-rest>Toggle rest</button>
           <button type="button" data-reset>Staff reset</button>
         </div>
@@ -160,6 +161,7 @@
       <p>Do not use this score as a welfare diagnosis. Staff judgment and existing care procedures always take priority.</p>
     </div>
   </footer>
+  <script src="js/main.js"></script>
   <script src="js/demo.js"></script>
 </body>
 </html>

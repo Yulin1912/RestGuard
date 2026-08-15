@@ -1,3 +1,15 @@
+const nav = document.querySelector("[data-nav]");
+const navToggle = document.querySelector("[data-nav-toggle]");
+if (nav && navToggle) {
+  navToggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => nav.classList.remove("open"));
+  });
+}
+
 const tabs = document.querySelectorAll("[data-sensor-tab]");
 const panels = document.querySelectorAll("[data-sensor-panel]");
 
