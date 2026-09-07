@@ -1,0 +1,13 @@
+{
+  "name": "RestGuard",
+  "ports": [
+    { "name": "static site", "port": 4173 }
+  ],
+  "terminals": [
+    {
+      "name": "static-server",
+      "command": "python3 -m http.server 4173",
+      "description": "Serves the RestGuard static site on http://localhost:4173 (index.html story/demo, prototype.html live lab, chip.html hardware hero)."
+    }
+  ]
+}
